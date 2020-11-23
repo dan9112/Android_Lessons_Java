@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tr"
+        android:orderInCategory="2"
+        android:title="translate" >
+    </item>
+    <item
+        android:id="@+id/ro"
+        android:orderInCategory="3"
+        android:title="rotate" >
+    </item>
+    <item
+        android:id="@+id/al"
+        android:orderInCategory="0"
+        android:title="alpha" >
+    </item>
+    <item
+        android:id="@+id/sc"
+        android:orderInCategory="1"
+        android:title="scale" >
+    </item>
+    <item
+        android:id="@+id/co"
+        android:orderInCategory="4"
+        android:title="combo" >
+        </item>
+</menu>

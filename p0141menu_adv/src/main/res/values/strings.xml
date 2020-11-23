@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">menu_adv</string>
+    <string name="chk">Расширенное меню</string>
+    <string name="chk1">Максимальное расширение меню</string>
+</resources>

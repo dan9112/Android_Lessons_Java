@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="clear_stack">Clear stack</string>
+</resources>

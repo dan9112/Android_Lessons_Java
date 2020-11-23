@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/automotive" />
+            <option value="$PROJECT_DIR$/autorisation_test" />
+            <option value="$PROJECT_DIR$/calculator" />
+            <option value="$PROJECT_DIR$/casino_demo" />
+            <option value="$PROJECT_DIR$/degree_calculator" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/p0031first_project" />
+            <option value="$PROJECT_DIR$/p0041basicviews" />
+            <option value="$PROJECT_DIR$/p0051LayoutFiles" />
+            <option value="$PROJECT_DIR$/p0061layouts" />
+            <option value="$PROJECT_DIR$/p0072layoutprop" />
+            <option value="$PROJECT_DIR$/p0081viewbyld" />
+            <option value="$PROJECT_DIR$/p0091on_click_buttons" />
+            <option value="$PROJECT_DIR$/p0101listener" />
+            <option value="$PROJECT_DIR$/p0102activity_listener" />
+            <option value="$PROJECT_DIR$/p0103activity_listener" />
+            <option value="$PROJECT_DIR$/p0111res_values" />
+            <option value="$PROJECT_DIR$/p0121log_and_mess" />
+            <option value="$PROJECT_DIR$/p0131menusimple" />
+            <option value="$PROJECT_DIR$/p0141menu_adv" />
+            <option value="$PROJECT_DIR$/p0151context_menu" />
+            <option value="$PROJECT_DIR$/p0161dynamic_layout" />
+            <option value="$PROJECT_DIR$/p0171dynamic_layout2" />
+            <option value="$PROJECT_DIR$/p0181dynamic_layout3" />
+            <option value="$PROJECT_DIR$/p0191simple_calculator" />
+            <option value="$PROJECT_DIR$/p0201simple_animation" />
+            <option value="$PROJECT_DIR$/p0211two_activity" />
+            <option value="$PROJECT_DIR$/p0231one_activity_state" />
+            <option value="$PROJECT_DIR$/p0241two_activity_state" />
+            <option value="$PROJECT_DIR$/p0261intent_filter" />
+            <option value="$PROJECT_DIR$/p0271get_intent_action" />
+            <option value="$PROJECT_DIR$/p0281intent_extras" />
+            <option value="$PROJECT_DIR$/p0291simple_activity_result" />
+            <option value="$PROJECT_DIR$/p0301activity_result" />
+            <option value="$PROJECT_DIR$/p0311simple_intents" />
+            <option value="$PROJECT_DIR$/p0321simple_browser" />
+            <option value="$PROJECT_DIR$/p0331shared_preferences" />
+            <option value="$PROJECT_DIR$/p0341simple_sqlite" />
+            <option value="$PROJECT_DIR$/p0361sqlite_query" />
+            <option value="$PROJECT_DIR$/p0371sqlite_inner_join" />
+            <option value="$PROJECT_DIR$/p0381sqlite_transaction" />
+            <option value="$PROJECT_DIR$/p0391sqlite_onupgradedb" />
+            <option value="$PROJECT_DIR$/p0401layout_inflater" />
+            <option value="$PROJECT_DIR$/p0411layout_inflater_list" />
+            <option value="$PROJECT_DIR$/p0421simple_list" />
+            <option value="$PROJECT_DIR$/p0431simple_list_choice" />
+            <option value="$PROJECT_DIR$/p0441simple_list_events" />
+            <option value="$PROJECT_DIR$/p1041fragment_lifecycle" />
+            <option value="$PROJECT_DIR$/p1051fragment_dynamic" />
+            <option value="$PROJECT_DIR$/p1061_fragment_activity" />
+            <option value="$PROJECT_DIR$/p1801constraintlayoutintro" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

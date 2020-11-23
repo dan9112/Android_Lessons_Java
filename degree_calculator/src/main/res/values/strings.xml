@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Degree_Calculator</string>
+    <string name="button2">Exit</string>
+    <string name="button1">Count</string>
+</resources>

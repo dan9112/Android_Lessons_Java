@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">log_and_mess</string>
+    <string name="bOK">Нажата кнопка OK</string>
+    <string name="bCancel">Нажата кнопка Cancel</string>
+    <string name="bOkText">OK</string>
+    <string name="bCancelText">Cancel</string>
+</resources>

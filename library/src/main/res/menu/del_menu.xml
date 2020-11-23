@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/oAutor"
+        android:title="Отметить автора">
+    </item>
+    <item
+        android:id="@+id/oSeria"
+        android:title="Отметить серию">
+    </item>
+    <item
+        android:id="@+id/oRead"
+        android:title="Отметить прочитанные">
+    </item>
+    <item
+        android:id="@+id/oNRead"
+        android:title="Отметить непрочитанные">
+    </item>
+    <item
+        android:id="@+id/oNChecked"
+        android:title="Снять все отметки">
+    </item>
+</menu>

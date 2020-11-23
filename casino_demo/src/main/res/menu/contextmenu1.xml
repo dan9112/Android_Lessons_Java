@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/m1">
+        <item
+            android:id="@+id/fix_0"
+            android:title="0">
+
+        </item>
+        <item
+            android:id="@+id/fix_10"
+            android:title="10">
+        </item>
+        <item
+            android:id="@+id/fix_25"
+            android:title="25">
+        </item>
+        <item
+            android:id="@+id/fix_45"
+            android:title="45">
+        </item>
+    </group>
+    <group
+        android:id="@+id/m2">
+        <item
+            android:id="@+id/fix_55"
+            android:title="55">
+        </item>
+        <item
+            android:id="@+id/fix_75"
+            android:title="75">
+        </item>
+        <item
+            android:id="@+id/fix_90"
+            android:title="90">
+        </item>
+        <item
+            android:id="@+id/fix_100"
+            android:title="100">
+        </item>
+    </group>
+</menu>

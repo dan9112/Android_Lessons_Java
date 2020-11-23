@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MasterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Введённый логин:"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:textSize="10pt">
+    </TextView>
+
+    <TextView
+        android:id="@+id/login_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="start"
+        android:text=""
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:textSize="10pt">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Введённый пароль:"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:textSize="10pt">
+    </TextView>
+
+    <TextView
+        android:id="@+id/password_0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="start"
+        android:text=""
+        android:layout_marginEnd="80dp"
+        android:layout_marginStart="80dp"
+        android:textSize="10pt">
+    </TextView>
+
+    <Button
+        android:id="@+id/ok_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back" >
+    </Button>
+</LinearLayout>
