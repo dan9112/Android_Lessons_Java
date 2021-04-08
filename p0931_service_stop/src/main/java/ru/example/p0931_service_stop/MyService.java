@@ -45,9 +45,17 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(LOG_TAG, "MyService onStartCommand");
-        int time = intent.getIntExtra("time", 1);
-        MyRun mr = new MyRun(time, startId);
-        es.execute(mr);
+        int time = intent.getIntExtra("time", -1);
+        if (time >= 0) {
+            MyRun mr = new MyRun(time, startId);
+            es.execute(mr);
+        }
+        short код = intent.getShortExtra("something", (short) -1);
+        if (код >= 0) {
+            ДействительноМойRun класс = new ДействительноМойRun(код, startId);
+            es.execute(класс);
+        }
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -107,6 +115,60 @@ public class MyService extends Service {
         private void stop() {
             Log.d(LOG_TAG, "MyRun#" + startId + " end, stopSelfResult(" + startId + ") = " +
                     stopSelfResult(startId));
+        }
+    }
+
+    /**
+     * Свой класс с реализацией интерфейса
+     */
+    private class ДействительноМойRun implements Runnable {
+
+        /**
+         * Время задержки
+         */
+        private final short код;
+        /**
+         * Порядковый номер запроса сервиса
+         */
+        private final int номер;
+
+        /**
+         * Конструктор получения необходимых параметров. Выводит в
+         * лог строку с сообщением о создании объекта
+         *
+         * @param код   код запроса
+         * @param номер порядковый номер запроса сервиса
+         */
+        public ДействительноМойRun(short код, int номер) {
+            this.код = код;
+            this.номер = номер;
+            Log.d(LOG_TAG, "ДействительноМойRun#" + номер + " создан");
+        }
+
+        @Override
+        public void run() {
+            Log.d(LOG_TAG, "ДействительноМойRun#" + номер + " запущен, полученный код = " + код);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            try {
+                Log.d(LOG_TAG, "ДействительноМойRun#" + номер + " someRes = " + someRes.getClass());
+            } catch (NullPointerException e) {
+                Log.d(LOG_TAG, "ДействительноМойRun#" + номер + " ошибка, указатель null");
+            }
+            stop();
+        }
+
+        /**
+         * Функция, информирующая сервис о завершении выполнения
+         * команды по её {@link #номер}. Также выводит информацию
+         * о сыбытии в лог
+         */
+        private void stop() {
+            Log.d(LOG_TAG, "ДействительноМойRun#" + номер + " end, stopSelfResult(" + номер + ") = " +
+                    stopSelfResult(номер));
         }
     }
 }

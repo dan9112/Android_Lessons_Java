@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
      * @param view виджет кнопки
      */
     public void onClickStart(View view) {
+
+        startService(new Intent(this, MyService.class).putExtra("something", (short) 2));
+
         startService(new Intent(this, MyService.class).putExtra("time", 7));
         startService(new Intent(this, MyService.class).putExtra("time", 2));
         startService(new Intent(this, MyService.class).putExtra("time", 4));
