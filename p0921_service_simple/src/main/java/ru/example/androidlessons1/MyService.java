@@ -12,15 +12,17 @@ import java.util.concurrent.TimeUnit;
  */
 public class MyService extends Service {
 
+    // private static ArrayList<Integer> commands = new ArrayList<>();
+
     /**
      * Тег логов сервиса
      */
     private static final String LOG_TAG = "myLogs";
 
     /**
-     * Флаг остановки потока задачи сервиса
+     * Флаг использования сервиса
      */
-    private static boolean stop = false;
+    private static boolean isNeeded = true;
 
     @Override
     public void onCreate() {
@@ -30,15 +32,16 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(LOG_TAG, "onStartCommand");
-        someTask();
+        Log.d(LOG_TAG, "onStartCommand with id: " + startId);
+        // commands.add(startId);
+        someTask(startId);
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        stop = !stop;
+        isNeeded = !isNeeded;
         Log.d(LOG_TAG, "onDestroy");
     }
 
@@ -49,15 +52,23 @@ public class MyService extends Service {
     }
 
     /**
-     * Функция с кодом нашего сервиса
+     * Функция с кодом нашего сервиса.
+     * <p>
+     * Выполнение потока завязано на существование родительского сервиса:
+     * как только произойдёт событие onDestroy, булевая переменная
+     * бысконечного цикла инвертирует значение и завершить все дочерние
+     * потоки
+     * </p>
+     *
+     * @param id номер, под которым была запущена команда
      */
-    private void someTask() {
+    private void someTask(int id) {
         new Thread(() -> {
             // запуск бесконечного цикла выводов в лог похожих строк с задержкой в 1 секунду
             int i = 0;
-            while (!stop) {
+            while (isNeeded) {
                 i++;
-                Log.d(LOG_TAG, "Log [" + i + "]");
+                Log.d(LOG_TAG, "Log [" + id + "] - " + i);
                 try {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
@@ -74,7 +85,7 @@ public class MyService extends Service {
             //         e.printStackTrace();
             //     }
             // }
-            // stopSelf();
+            stopSelf();
         }).start();
     }
 }
