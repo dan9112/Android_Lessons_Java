@@ -31,7 +31,7 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d(LOG_TAG, "MyService onCreate");
-        es = Executors.newFixedThreadPool(1);
+        es = Executors.newFixedThreadPool(3);
         someRes = new Object();
     }
 
@@ -57,7 +57,7 @@ public class MyService extends Service {
     }
 
     /**
-     * Свой класс с реализации интерфейса для создания потоков
+     * Свой класс с реализацией интерфейса
      */
     private class MyRun implements Runnable {
 
