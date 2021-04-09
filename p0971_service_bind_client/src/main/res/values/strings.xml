@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Service Bind Client</string>
+
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="bind">Bind</string>
+    <string name="unbind">Unbind</string>
+</resources>
