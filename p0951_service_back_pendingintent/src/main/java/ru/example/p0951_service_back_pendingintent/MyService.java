@@ -10,9 +10,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static ru.example.p0951_service_back_pendingintent.Codes.*;
-
-public class MyService extends Service {
+/**
+ * Пример сервиса
+ */
+public class MyService extends Service implements Codes{
 
     /**
      * Тег логов класса

@@ -10,15 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import static ru.example.p0951_service_back_pendingintent.Codes.*;
-
 /**
  * Основная активность приложения.
  * <p>
  * Запускает сервис {@link MyService}, взаимодействует с ним, отправляя и получая данные
  * </p>
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Codes{
 
     /**
      * Код запроса для Task1

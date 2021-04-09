@@ -5,11 +5,11 @@ import android.app.PendingIntent;
 /**
  * Класс для хранения кодов различных запросов модуля
  */
-class Codes {
+interface Codes {
     /**
      * Код для типа возвращаемого сообщения "Задача начала работу"
      */
-    protected final static int STATUS_START = 100,
+    int STATUS_START = 100,
     /**
      * Код для типа возвращаемого сообщения "Задача завершила работу"
      */
@@ -18,7 +18,7 @@ class Codes {
     /**
      * Ключ для передаваемого параметра "Время задержки"
      */
-    protected final static String PARAM_TIME = "time",
+    String PARAM_TIME = "time",
     /**
      * Ключ для передаваемого параметра {@link PendingIntent} для предоставления права
      * взаимодействия с текущей активностью
