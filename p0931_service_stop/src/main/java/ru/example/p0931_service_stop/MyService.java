@@ -124,7 +124,7 @@ public class MyService extends Service {
     private class ДействительноМойRun implements Runnable {
 
         /**
-         * Время задержки
+         * Код запроса
          */
         private final short код;
         /**
