@@ -11,28 +11,50 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Основная активность приложения.
+ * <p>
+ * Запускает сервис {@link MyService}, взаимодействует с ним, отправляя и получая данные
+ * </p>
+ */
+public class MainActivity extends AppCompatActivity implements Codes {
 
-    public final static int STATUS_START = 100;
-    public final static int STATUS_FINISH = 200;
-    public final static String PARAM_TIME = "time";
-    public final static String PARAM_TASK = "task";
-    public final static String PARAM_RESULT = "result";
-    public final static String PARAM_STATUS = "status";
-    public final static String BROADCAST_ACTION = "ru.startandroid.develop.p0961servicebackbroadcast";
-    final String LOG_TAG = "myLogs";
-    final int TASK1_CODE = 1;
-    final int TASK2_CODE = 2;
-    final int TASK3_CODE = 3;
-    TextView tvTask1;
-    TextView tvTask2;
-    TextView tvTask3;
-    BroadcastReceiver br;
+    /**
+     * Код запроса для Task1
+     */
+    private final int TASK1_CODE = 1,
+    /**
+     * Код запроса для Task2
+     */
+            TASK2_CODE = 2,
+    /**
+     * Код запроса для Task3
+     */
+            TASK3_CODE = 3;
+
+    /**
+     * Текстовое окно вывода для Task1
+     */
+    private TextView tvTask1,
+    /**
+     * Текстовое окно вывода для Task2
+     */
+    tvTask2,
+    /**
+     * Текстовое окно вывода для Task3
+     */
+    tvTask3;
+
+    /**
+     * Слушатель широковещательных сообщений
+     */
+    private BroadcastReceiver br;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
         tvTask1 = findViewById(R.id.tvTask1);
         tvTask1.setText("Task1");
         tvTask2 = findViewById(R.id.tvTask2);
@@ -94,7 +116,15 @@ public class MainActivity extends AppCompatActivity {
         unregisterReceiver(br);
     }
 
-    public void onClickStart(View v) {
+    /**
+     * Функция обработки нажатия на кнопку запуска.
+     * <p>
+     * Запускает серию вызовов сервиса {@link MyService} с различными входными данными
+     * </p>
+     *
+     * @param view виджет кнопки
+     */
+    public void onClickStart(View view) {
         Intent intent;
 
         // Создаем Intent для вызова сервиса,
