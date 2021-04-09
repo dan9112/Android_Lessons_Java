@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import static ru.example.p0951_service_back_pendingintent.Codes.*;
+
 public class MyService extends Service {
 
     /**
@@ -40,8 +42,8 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(LOG_TAG, "MyService onStartCommand");
 
-        int time = intent.getIntExtra(MainActivity.PARAM_TIME, 1);
-        PendingIntent pi = intent.getParcelableExtra(MainActivity.PARAM_PINTENT);
+        int time = intent.getIntExtra(PARAM_TIME, 1);
+        PendingIntent pi = intent.getParcelableExtra(PARAM_PINTENT);
 
         MyRun mr = new MyRun(time, startId, pi);
         es.execute(mr);
@@ -93,14 +95,14 @@ public class MyService extends Service {
             Log.d(LOG_TAG, "MyRun#" + startId + " start, time = " + time);
             try {
                 // Сообщаем о запуске задачи
-                pi.send(MainActivity.STATUS_START);
+                pi.send(STATUS_START);
 
                 // Начинаем выполнение задачи
                 TimeUnit.SECONDS.sleep(time);
 
                 // Сообщаем об окончании задачи
-                Intent intent = new Intent().putExtra(MainActivity.PARAM_RESULT, time * 100);
-                pi.send(MyService.this, MainActivity.STATUS_FINISH, intent);
+                Intent intent = new Intent().putExtra(PARAM_RESULT, time * 100);
+                pi.send(MyService.this, STATUS_FINISH, intent);
             } catch (InterruptedException | PendingIntent.CanceledException e) {
                 e.printStackTrace();
             }

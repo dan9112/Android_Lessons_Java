@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import static ru.example.p0951_service_back_pendingintent.Codes.*;
+
 /**
  * Основная активность приложения.
  * <p>
@@ -17,34 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
  * </p>
  */
 public class MainActivity extends AppCompatActivity {
-
-    /**
-     * Код для типа возвращаемого сообщения "Задача начала работу"
-     */
-    public final static int STATUS_START = 100,
-    /**
-     * Код для типа возвращаемого сообщения "Задача завершила работу"
-     */
-    STATUS_FINISH = 200;
-
-    /**
-     * Ключ для передаваемого параметра "Время задержки"
-     */
-    public final static String PARAM_TIME = "time",
-    /**
-     * Ключ для передаваемого параметра {@link PendingIntent} для предоставления права
-     * взаимодействия с текущей активностью
-     */
-    PARAM_PINTENT = "pendingIntent",
-    /**
-     * Ключ для возвращаемого параметра "Результат"
-     */
-    PARAM_RESULT = "result";
-
-    /**
-     * Тег логов класса
-     */
-    private final static String LOG_TAG = "myLogs";
 
     /**
      * Код запроса для Task1
