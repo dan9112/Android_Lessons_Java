@@ -11,14 +11,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Пример сервиса
+ * Пример сервиса c обменом данных.
+ * <p>
+ * Обмен через PendingIntent
+ * </p>
  */
-public class MyService extends Service implements Codes{
-
-    /**
-     * Тег логов класса
-     */
-    private final static String LOG_TAG = "myLogs";
+public class MyService extends Service implements Codes {
 
     /**
      * Экземпляр интерфейса для управления исполнением и контроля потоков
