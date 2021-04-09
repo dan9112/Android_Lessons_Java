@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity implements Codes {
     /**
      * Код запроса для Task2
      */
-            TASK2_CODE = 2,
+    TASK2_CODE = 2,
     /**
      * Код запроса для Task3
      */
-            TASK3_CODE = 3;
+    TASK3_CODE = 3;
 
     /**
      * Текстовое окно вывода для Task1
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements Codes {
             public void onReceive(Context context, Intent intent) {
                 int task = intent.getIntExtra(PARAM_TASK, 0);
                 int status = intent.getIntExtra(PARAM_STATUS, 0);
+                int hero = intent.getIntExtra(CODE_OUT, 0);
                 Log.d(LOG_TAG, "onReceive: task = " + task + ", status = " + status);
 
                 // Ловим сообщения о старте задач
@@ -100,6 +101,26 @@ public class MainActivity extends AppCompatActivity implements Codes {
                             tvTask3.setText("Task3 finish, result = " + result);
                             break;
                     }
+                }
+
+                // Ловим моё сообщение
+                if (hero == 13) {
+                    int sI = intent.getIntExtra("sI", -1);
+                    int i = 0;
+                    switch (sI) {
+                        case 1:
+                            i = 111;
+                            break;
+                        case 2:
+                            i = 222;
+                            break;
+                        case 3:
+                            i = 333;
+                            break;
+                    }
+                    sendBroadcast(new Intent(BROADCAST_ACTION1 + sI)
+                            .putExtra(CODE_IN, i)
+                            .putExtra("sI", sI));
                 }
             }
         };
