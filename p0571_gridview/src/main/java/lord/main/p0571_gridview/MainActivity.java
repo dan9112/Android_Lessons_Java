@@ -26,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void adjustGridView() {
-        gvMain.setNumColumns(GridView.AUTO_FIT);
-        gvMain.setColumnWidth(80);
-        gvMain.setVerticalSpacing(5);
-        gvMain.setHorizontalSpacing(5);
+        gvMain.setNumColumns(GridView.AUTO_FIT);// Количество столбцов
+        gvMain.setColumnWidth(80);// ширина столбцов
+        gvMain.setVerticalSpacing(5);// вертикальный отступ между ячейками
+        gvMain.setHorizontalSpacing(5);// горизонтальный отступ между ячейками
+        gvMain.setStretchMode(GridView.NO_STRETCH);// мод использования свободного пространства
     }
 }
