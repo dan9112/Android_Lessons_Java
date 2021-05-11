@@ -41,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
         showDialog(DIALOG_EXIT);
     }
 
+    /**
+     * Функция обработки нажатия кнопки "Назад"
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        // вызываем диалоговое окно
+        showDialog(DIALOG_EXIT);
+    }
+
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_EXIT) {
             AlertDialog.Builder adb = new AlertDialog.Builder(this);
