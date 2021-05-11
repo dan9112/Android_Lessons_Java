@@ -26,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void adjustGridView() {
-        gvMain.setNumColumns(3);
+        gvMain.setNumColumns(GridView.AUTO_FIT);
     }
 }
