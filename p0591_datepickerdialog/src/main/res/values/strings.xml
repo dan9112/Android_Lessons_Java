@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DatePickerDialog</string>
+    <string name="today_date">Today is %d/%d/%d</string>
+</resources>
