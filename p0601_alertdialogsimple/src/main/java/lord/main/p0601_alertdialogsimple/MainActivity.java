@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
             adb.setNegativeButton(R.string.no, myClickListener);
             // кнопка нейтрального ответа
             adb.setNeutralButton(R.string.cancel, myClickListener);
+            // запрещаем "отменять" диалоговое окно
+            adb.setCancelable(false);
             // создаём диалог
             return adb.create();
         }
