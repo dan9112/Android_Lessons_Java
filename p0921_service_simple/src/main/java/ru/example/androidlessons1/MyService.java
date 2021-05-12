@@ -12,8 +12,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class MyService extends Service {
 
-    // private static ArrayList<Integer> commands = new ArrayList<>();
-
     /**
      * Тег логов сервиса
      */
@@ -34,6 +32,7 @@ public class MyService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(LOG_TAG, "onStartCommand with id: " + startId);
         // commands.add(startId);
+        isNeeded = true;
         someTask(startId);
         return super.onStartCommand(intent, flags, startId);
     }
@@ -41,7 +40,7 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        isNeeded = !isNeeded;
+        isNeeded = false;
         Log.d(LOG_TAG, "onDestroy");
     }
 
@@ -56,7 +55,7 @@ public class MyService extends Service {
      * <p>
      * Выполнение потока завязано на существование родительского сервиса:
      * как только произойдёт событие onDestroy, булевая переменная
-     * бысконечного цикла инвертирует значение и завершить все дочерние
+     * бысконечного цикла инвертирует значение и завершит все дочерние
      * потоки
      * </p>
      *
