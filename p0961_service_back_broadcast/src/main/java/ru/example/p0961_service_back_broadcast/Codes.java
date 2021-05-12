@@ -48,7 +48,7 @@ interface Codes {
     /**
      * Код для данных, отправляемых из сервиса
      */
-    String CODE_OUT = "by",
+    String CODE_OUT = "from",
     /**
      * Код для данных, отправляемых в сервис
      */
