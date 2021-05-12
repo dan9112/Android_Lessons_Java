@@ -34,7 +34,7 @@ public class MyService extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         Log.d(LOG_TAG, "MyService onUnbind");
-        return super.onUnbind(intent);
+        return true;
     }
 
     @Override
