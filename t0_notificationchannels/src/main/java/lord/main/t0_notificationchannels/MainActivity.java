@@ -108,12 +108,12 @@ public class MainActivity extends AppCompatActivity {
      * @param raw                  идентификатор звуковой дорожки в ресурсах
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void createNotificationChannel(String id, String name, int importanceLevel, String description, boolean enableLights, Integer lightColor, boolean enableVibration, int lockscreenVisibility, String groupID, int raw) {
+    private void createNotificationChannel(String id, String name, int importanceLevel, String description, boolean enableLights, int lightColor, boolean enableVibration, int lockscreenVisibility, String groupID, int raw) {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannel channel = new NotificationChannel(id, name, importanceLevel);
         if (description.length() > 0) channel.setDescription(description);
         channel.enableLights(enableLights);
-        if (lightColor != null) channel.setLightColor(lightColor);
+        if (enableLights) channel.setLightColor(lightColor);
         channel.enableVibration(enableVibration);
         channel.setLockscreenVisibility(lockscreenVisibility);
         if (groupID.length() > 0) channel.setGroup(groupID);
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                     NotificationManager.IMPORTANCE_DEFAULT,
                     "Он делает что-то другое, что тоже неплохо",
                     false,
-                    null,
+                    -1,
                     false,
                     Notification.VISIBILITY_PUBLIC,
                     NOTIFICATION_CHANNEL_GROUP_ID,
