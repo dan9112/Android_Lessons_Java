@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    tools:context=".ActivityAddChannel">
+
+    <EditText
+        android:id="@+id/channel_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Наименование канала"
+        android:inputType="textCapSentences"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/channel_description"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:gravity="top|left"
+        android:hint="Описание"
+        android:inputType="textMultiLine|textCapSentences"
+        app:layout_constraintBottom_toTopOf="@id/importance_level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/channel_name" />
+
+    <Spinner
+        android:id="@+id/importance_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/importance_levels"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/vibration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/channel_description" />
+
+    <CheckBox
+        android:id="@+id/vibration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вибрация"
+        app:layout_constraintBottom_toTopOf="@id/l0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/importance_level" />
+
+    <LinearLayout
+        android:id="@+id/l0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="click0"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/l1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vibration">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Выберите цвет световой индикации:"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/light_color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="click1"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/l2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l0">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Выберите группу уведомлений:"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/group_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/group_ids"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:onClick="click2"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnCreateChannel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Выберите мелодию уведомлений"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <Spinner
+            android:id="@+id/sound_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/sound_ids"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCreateChannel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCreate"
+        android:text="Создать"
+        android:enabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Уровни важности уведомлений, доступные для каналов уведомлений -->
+    <string-array name="importance_levels">
+        <item>Высокий</item>
+        <item>По умолчанию</item>
+        <item>Средний</item>
+        <item>Минимальный</item>
+        <item>Неважное уведомление</item>
+    </string-array>
+
+    <!-- Цвета световой индикации -->
+    <string-array name="light_colors">
+        <item>Нет</item>
+        <item>Белый</item>
+        <item>Синий</item>
+        <item>Красный</item>
+        <item>Зелёный</item>
+    </string-array>
+
+    <!-- Цвета иконки заголовка уведомления -->
+    <string-array name="title_colors">
+        <item>Белый</item>
+        <item>Синий</item>
+        <item>Красный</item>
+        <item>Зелёный</item>
+    </string-array>
+
+    <!-- Иконки уведомлений -->
+    <string-array name="icons">
+        <item>Бейсбольный мяч</item>
+        <item>Звезда</item>
+        <item>Зонт</item>
+        <item>Инфо</item>
+    </string-array>
+
+    <!-- В примере имена групп каналов являются также уникальными идентификаторами! -->
+    <string-array name="group_ids">
+        <item>Нет</item>
+        <item>Lord_1</item>
+        <item>Lord_2</item>
+        <item>Lord_3</item>
+        <item>Lord_4</item>
+    </string-array>
+
+    <!-- Мелодии уведомлений -->
+    <string-array name="sound_ids">
+        <item>Нет</item>
+        <item>По умолчанию</item>
+        <item>Игра с огнём (обрезанная)</item>
+        <item>Song of the Pale Lady (обрезанная)</item>
+    </string-array>
+</resources>
