@@ -9,7 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLessons1">
-        <activity android:name=".ActivityCreateNotification"></activity>
+        <service
+            android:name=".ServiceNotification"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
+            android:name=".ServiceBdConnection"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".ActivityShowNotifyHistory" />
+        <activity android:name=".ActivityCreateNotification" />
         <activity android:name=".ActivityAddChannel" />
         <activity android:name=".ActivityMain">
             <intent-filter>
