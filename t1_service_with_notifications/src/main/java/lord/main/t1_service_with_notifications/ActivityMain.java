@@ -29,11 +29,39 @@ public class ActivityMain extends AppCompatActivity {
         startActivity(new Intent(this, ActivityAddChannel.class));
     }
 
-    public void onCreateClick(View v) {
+    /**
+     * Функция обработки нажатия на кнопку создания нового уведомления.
+     * <p>
+     * Запускает {@link ActivityCreateNotification активность создания нового уведомления}
+     * </p>
+     *
+     * @param view виджет кнопки
+     */
+    public void onCreateClick(View view) {
         startActivity(new Intent(this, ActivityCreateNotification.class));
     }
 
-    public void onShowClick(View v) {
+    /**
+     * Функция обработки нажатия на кнопку просмотра истории уведомлений.
+     * <p>
+     * Запускает {@link ActivityShowNotifyHistory активность демонстрации истории уведомлений}
+     * </p>
+     *
+     * @param view виджет кнопки
+     */
+    public void onShowClick(View view) {
+        startActivity(new Intent(this, ActivityShowNotifyHistory.class));
+    }
 
+    /**
+     * Функция обработки нажатия на кнопку просмотра справочной информации о приложении.
+     * <p>
+     * Запускает активность со справочной информацией?
+     * </p>
+     *
+     * @param view виджет кнопки
+     */
+    public void help(View view) {
+        //Справочная активность
     }
 }
