@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Выберите иконку:"
-            android:textColor="@color/black"
+            android:textColor="@color/my"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Выберите цвет иконки:"
-            android:textColor="@color/black"
+            android:textColor="@color/my"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Выберите канал, по которому отправить сообщение:"
-            android:textColor="@color/black"
+            android:textColor="@color/my"
             android:textSize="15sp" />
 
         <Spinner

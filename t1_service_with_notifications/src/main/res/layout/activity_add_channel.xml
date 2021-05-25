@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Выберите цвет световой индикации:"
-            android:textColor="@color/black"
+            android:textColor="@color/my"
             android:textSize="15sp" />
 
         <Spinner
@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Выберите группу уведомлений:"
-            android:textColor="@color/black"
+            android:textColor="@color/my"
             android:textSize="15sp" />
 
         <Spinner
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Выберите мелодию уведомлений"
-            android:textColor="@color/black"
+            android:textColor="@color/my"
             android:textSize="15sp" />
 
         <Spinner
