@@ -8,7 +8,6 @@ import android.os.IBinder;
 import java.util.ArrayList;
 
 import lord.main.t1_service_with_notifications.db.DbManager;
-import lord.main.t1_service_with_notifications.supporting_classes.RecyclerViewItem;
 
 /**
  * Сервис взаимодействия с БД
@@ -103,17 +102,9 @@ public class ServiceBdConnection extends Service {
                 sound);
     }
 
-    public ArrayList<RecyclerViewItem> getAllHistory() {
-        return manager.getAllHistory();
-    }
-
     @Override
     public IBinder onBind(Intent intent) {
         return binder;
-    }
-
-    public int deleteHistoryRow(int id){
-        return manager.removeHistoryRow(id);
     }
 
     /**
