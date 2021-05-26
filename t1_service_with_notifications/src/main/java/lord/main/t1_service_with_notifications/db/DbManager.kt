@@ -170,7 +170,7 @@ class DbManager(context: Context) {
      *
      * @return курсор с данными либо null, если таблица пуста
      */
-    val allNotificationChannelNames: ArrayList<ArrayList<String>>?
+    val notificationChannelNames: ArrayList<ArrayList<String>>?
         get() {
             val list =
                 ArrayList<ArrayList<String>>() // объединённый список, который возвращается в результате

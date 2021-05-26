@@ -61,7 +61,7 @@ class ServiceBdConnection : Service() {
      * @return возвращает двухуровневый список
      */
     fun allChannels(): ArrayList<ArrayList<String>>? {
-        return manager.allNotificationChannelNames
+        return manager.notificationChannelNames
     }
 
     /**
