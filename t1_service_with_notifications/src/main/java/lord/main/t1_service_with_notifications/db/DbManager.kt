@@ -152,7 +152,7 @@ class DbManager(context: Context) {
             return if (c.moveToFirst()) {
                 do {
                     val item = RecyclerViewItem
-                    item.id = c.getInt(0)
+                    item.id = c.getLong(0)
                     item.channelId = c.getString(1)
                     item.title = c.getString(2)
                     item.text = c.getString(3)

@@ -18,7 +18,7 @@ public class TableHistory {
     /**
      * Уникальный идентификатор канала уведомлений
      */
-    public String channelID;
+    public String channelId;
 
     /**
      * Заголовок уведомления

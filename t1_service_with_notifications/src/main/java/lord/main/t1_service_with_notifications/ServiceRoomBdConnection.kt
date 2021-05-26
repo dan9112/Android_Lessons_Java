@@ -7,7 +7,6 @@ import androidx.room.Room
 import lord.main.t1_service_with_notifications.room_db.AppDatabase
 import lord.main.t1_service_with_notifications.room_db.TableChannels
 import lord.main.t1_service_with_notifications.room_db.TableHistory
-import java.lang.Exception
 import java.util.*
 
 class ServiceRoomBdConnection : Service() {
@@ -46,7 +45,7 @@ class ServiceRoomBdConnection : Service() {
         iconColorRes: Int
     ): Long {
         return db.historyDao().registerNotify(TableHistory().apply {
-            this.channelID = channelId
+            this.channelId = channelId
             this.title = title
             this.text = text
             this.iconRes = iconRes
@@ -105,8 +104,24 @@ class ServiceRoomBdConnection : Service() {
         }
     }
 
+    /**
+     * Удаляет из таблицы истории уведомлений строку
+     *
+     * @param id уникальный идентификатор строки, которую нужно удалить
+     * @return количество удалённых строк в таблице
+     */
+    fun unregistrNotify(id: Long): Int {
+        return db.historyDao().unregistrNotify(id)
+    }
 
-
+    /**
+     * Возвращает все записи таблицы истории уведомлений из БД
+     *
+     * @return все записи таблицы
+     */
+    fun getHistory(): ArrayList<TableHistory> {
+        return db.historyDao().all
+    }
 
     override fun onBind(intent: Intent): IBinder {
         return binder

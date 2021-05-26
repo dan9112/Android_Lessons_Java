@@ -20,7 +20,7 @@ class ActivityCreateNotification : AppCompatActivity() {
     /**
      * Экземпляр [сервиса для взаимодействия с БД][ServiceBdConnection] приложения
      */
-    private lateinit var bdService: ServiceBdConnection
+    private lateinit var bdRoomService: ServiceRoomBdConnection
 
     /**
      * Выпадающее меню выбора иконки для уведомления
@@ -65,18 +65,18 @@ class ActivityCreateNotification : AppCompatActivity() {
     /**
      * Флаг подключения к [сервису взаимодействия с БД][ServiceBdConnection]
      */
-    private var bdBound = false
+    private var bdRoomBound = false
 
     /**
      * Объект для подключения к [сервису взаимодействия с БД][ServiceBdConnection]
      */
-    private lateinit var bdServiceConnection: ServiceConnection
+    private lateinit var bdRoomServiceConnection: ServiceConnection
 
     /**
      * Функция заполнения таблицы
      */
     private fun fillTable() {
-        val list = bdService.allChannels()
+        val list = bdRoomService.allChannels()
         if (list == null) {
             Toast.makeText(this, "Ошибка чтения каналов уведомлений из БД!", Toast.LENGTH_SHORT)
                 .show()
@@ -91,20 +91,20 @@ class ActivityCreateNotification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_notification)
         channelId = findViewById(R.id.notify_channel_id)
-        bdServiceConnection = object : ServiceConnection {
+        bdRoomServiceConnection = object : ServiceConnection {
             override fun onServiceConnected(name: ComponentName, service: IBinder) {
-                bdService = (service as ServiceBdConnection.Binder).service
-                bdBound = true
+                bdRoomService = (service as ServiceRoomBdConnection.Binder).service
+                bdRoomBound = true
                 fillTable()
             }
 
             override fun onServiceDisconnected(name: ComponentName) {
-                bdBound = false
+                bdRoomBound = false
             }
         }
         bindService(
             Intent(this, ServiceBdConnection::class.java),
-            bdServiceConnection,
+            bdRoomServiceConnection,
             BIND_AUTO_CREATE
         )
         icon = findViewById(R.id.notify_icon)
@@ -157,7 +157,7 @@ class ActivityCreateNotification : AppCompatActivity() {
             3 -> Color.GREEN
             else -> Color.WHITE
         }
-        val id = bdService.saveNotification(
+        val id = bdRoomService.registrNotify(
             channels[channelId.selectedItemPosition],
             title.text.toString(),
             text.text.toString(),
@@ -172,14 +172,14 @@ class ActivityCreateNotification : AppCompatActivity() {
             .setAutoCancel(autoCancel.isChecked)
             .setShowWhen(showWhen.isChecked)
             .build()
-        (getSystemService(NOTIFICATION_SERVICE) as NotificationManager).notify(id, builder)
+        (getSystemService(NOTIFICATION_SERVICE) as NotificationManager).notify(id.toInt(), builder)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        if (!bdBound) return
-        unbindService(bdServiceConnection)
-        bdBound = false
+        if (!bdRoomBound) return
+        unbindService(bdRoomServiceConnection)
+        bdRoomBound = false
     }
 
     /**

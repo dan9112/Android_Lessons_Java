@@ -26,7 +26,7 @@ class ActivityAddChannel : AppCompatActivity() {
     /**
      * Экземпляр [сервиса для взаимодействия с БД][ServiceBdConnection] приложения
      */
-    private lateinit var bdService: ServiceBdConnection
+    private lateinit var bdRoomService: ServiceRoomBdConnection
 
     /**
      * Кнопка создания и регистрации нового канала уведомлений
@@ -81,28 +81,28 @@ class ActivityAddChannel : AppCompatActivity() {
     /**
      * Флаг подключения к [сервису взаимодействия с БД][ServiceBdConnection]
      */
-    private var bdBound = false
+    private var bdRoomBound = false
 
     /**
      * Объект для подключения к [сервису взаимодействия с БД][ServiceBdConnection]
      */
-    private lateinit var bdServiceConn: ServiceConnection
+    private lateinit var bdRoomServiceConn: ServiceConnection
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_channel)
         ok = findViewById(R.id.btnCreateChannel)
-        bdServiceConn = object : ServiceConnection {
+        bdRoomServiceConn = object : ServiceConnection {
             override fun onServiceConnected(name: ComponentName, service: IBinder) {
-                bdService = (service as ServiceBdConnection.Binder).service
-                bdBound = true
+                bdRoomService = (service as ServiceRoomBdConnection.Binder).service
+                bdRoomBound = true
                 ok.isEnabled = true
             }
 
             override fun onServiceDisconnected(name: ComponentName) {
-                bdBound = false
+                bdRoomBound = false
             }
         }
-        bindService(Intent(this, ServiceBdConnection::class.java), bdServiceConn, BIND_AUTO_CREATE)
+        bindService(Intent(this, ServiceBdConnection::class.java), bdRoomServiceConn, BIND_AUTO_CREATE)
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         importanceLevel = findViewById(R.id.importance_level)
         importanceLevel.setSelection(1) // Установить выбранный по умолчанию на "По умолчанию"
@@ -236,14 +236,15 @@ class ActivityAddChannel : AppCompatActivity() {
                 else -> sI = 1
             }
             notificationManager.createNotificationChannel(channel)
-            if (bdService.addChannel(notificationManager.notificationChannels.size - 1,
+            if (bdRoomService.addChannel(notificationManager.notificationChannels.size - 1,
                             name.text.toString(),
                             iL,
                             description.text.toString(),
                             l,
                             if (vibration.isChecked) 1 else 0,
                             gI,
-                            sI) != -1L) {
+                            sI) != "double insert"
+            ) {
                 Toast.makeText(this, "Канал успешно создан!", Toast.LENGTH_SHORT).show()
                 finish()
             } else Toast.makeText(this, "Ошибка записи в БД!", Toast.LENGTH_SHORT).show()
@@ -252,9 +253,9 @@ class ActivityAddChannel : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (!bdBound) return
-        unbindService(bdServiceConn)
-        bdBound = false
+        if (!bdRoomBound) return
+        unbindService(bdRoomServiceConn)
+        bdRoomBound = false
     }
 
     /**
@@ -264,7 +265,7 @@ class ActivityAddChannel : AppCompatActivity() {
      *
      * @param view виджет layout
      */
-    fun click0(view: View?) {
+    fun click0(view: View) {
         lightColor.performClick()
     }
 
@@ -275,7 +276,7 @@ class ActivityAddChannel : AppCompatActivity() {
      *
      * @param view виджет layout
      */
-    fun click1(view: View?) {
+    fun click1(view: View) {
         groupId.performClick()
     }
 
@@ -286,7 +287,7 @@ class ActivityAddChannel : AppCompatActivity() {
      *
      * @param view виджет layout
      */
-    fun click2(view: View?) {
+    fun click2(view: View) {
         soundId.performClick()
     }
 }

@@ -11,23 +11,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import lord.main.t1_service_with_notifications.R
-import lord.main.t1_service_with_notifications.db.DbManager
+import lord.main.t1_service_with_notifications.ServiceRoomBdConnection
+import lord.main.t1_service_with_notifications.room_db.TableHistory
 import java.util.*
 
 /**
- * Клас-адаптер для заполнения [виджета списка][RecyclerView] [элементами][RecyclerViewItem]
+ * Клас-адаптер для заполнения [виджета списка][RecyclerView] [записями][TableHistory]
  */
 class RecyclerViewAdapter(
     context: Context,
     /**
      * Объект для управления БД
      */
-    var manager: DbManager
+    var service: ServiceRoomBdConnection
 ) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
     /**
-     * Список [элементов][RecyclerViewItem], который отображается в [виджете списка][RecyclerView]
+     * Список [записей][TableHistory], который отображается в [виджете списка][RecyclerView]
      */
-    var notifies: ArrayList<RecyclerViewItem>
+    var notifies: ArrayList<TableHistory>
 
     /**
      * Контекст, в котором создан [виджет списка][RecyclerView]
@@ -58,11 +59,11 @@ class RecyclerViewAdapter(
         /**
          * Функция заполнения элемента [виджета списка][RecyclerView]
          *
-         * @param item [элемент списка][RecyclerViewItem] с данными, которые необходимо продемонстрировать пользователю
+         * @param item [запись][TableHistory] с данными, которые необходимо продемонстрировать пользователю
          */
-        fun setData(item: RecyclerViewItem, position: Int) {
-            icon.setImageResource(item.iconId)
-            icon.setColorFilter(item.iconColor, PorterDuff.Mode.MULTIPLY) //SRC_IN
+        fun setData(item: TableHistory, position: Int) {
+            icon.setImageResource(item.iconRes)
+            icon.setColorFilter(item.iconColorRes, PorterDuff.Mode.MULTIPLY) //SRC_IN
             id.text = item.id.toString()
             channelId.text = item.channelId
             title.text = item.title
@@ -72,9 +73,7 @@ class RecyclerViewAdapter(
                 adb.setMessage("Вы уверены, что хотите удалить строку из истории?")
                 adb.setCancelable(true)
                 adb.setPositiveButton("Да") { dialog: DialogInterface, which: Int ->
-                    manager.open()
-                    manager.removeHistoryRow(item.id)
-                    manager.close()
+                    service.unregistrNotify(item.id)
                     notifies.removeAt(position)
                     notifyItemRemoved(position)
                 }
@@ -86,9 +85,7 @@ class RecyclerViewAdapter(
     }
 
     init {
-        manager.open()
-        notifies = manager.allHistory!!
-        manager.close()
+        notifies = service.getHistory()
         this.context = context
     }
 }
