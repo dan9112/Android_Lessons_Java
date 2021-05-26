@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidLessons1">
         <service
-            android:name=".ServiceNotification"
+            android:name=".ServiceRoomBdConnection"
             android:enabled="true"
             android:exported="true"></service>
         <service
