@@ -58,6 +58,7 @@
             <option value="$PROJECT_DIR$/p0421simple_list" />
             <option value="$PROJECT_DIR$/p0431simple_list_choice" />
             <option value="$PROJECT_DIR$/p0441simple_list_events" />
+            <option value="$PROJECT_DIR$/p0801handler" />
             <option value="$PROJECT_DIR$/p1041fragment_lifecycle" />
             <option value="$PROJECT_DIR$/p1051fragment_dynamic" />
             <option value="$PROJECT_DIR$/p1061_fragment_activity" />
@@ -65,7 +66,6 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
