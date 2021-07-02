@@ -51,3 +51,4 @@ include ':p0031first_project'
 include ':automotive'
 rootProject.name = "Android lessons"
 include ':p0801handler'
+include ':p0811handlersimplemessage'
