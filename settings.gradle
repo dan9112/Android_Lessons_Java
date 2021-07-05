@@ -53,3 +53,4 @@ rootProject.name = "Android lessons"
 include ':p0801handler'
 include ':p0811handlersimplemessage'
 include ':p0821handleradvmessage'
+include ':p0831handlermessagemanage'
