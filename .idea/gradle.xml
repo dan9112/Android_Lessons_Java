@@ -60,6 +60,7 @@
             <option value="$PROJECT_DIR$/p0441simple_list_events" />
             <option value="$PROJECT_DIR$/p0801handler" />
             <option value="$PROJECT_DIR$/p0811handlersimplemessage" />
+            <option value="$PROJECT_DIR$/p0821handleradvmessage" />
             <option value="$PROJECT_DIR$/p1041fragment_lifecycle" />
             <option value="$PROJECT_DIR$/p1051fragment_dynamic" />
             <option value="$PROJECT_DIR$/p1061_fragment_activity" />
