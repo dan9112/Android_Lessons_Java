@@ -67,6 +67,8 @@
             <option value="$PROJECT_DIR$/p1051fragment_dynamic" />
             <option value="$PROJECT_DIR$/p1061_fragment_activity" />
             <option value="$PROJECT_DIR$/p1801constraintlayoutintro" />
+            <option value="$PROJECT_DIR$/t1_handler" />
+            <option value="$PROJECT_DIR$/t2_viewmodel" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
